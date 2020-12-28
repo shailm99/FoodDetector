@@ -14,7 +14,4 @@ def main():
     
     st.write(text)
     
-    model = tf.keras.models.load_model('vgg19.h')
-    
-    st.write(model, size = 0.8)
     

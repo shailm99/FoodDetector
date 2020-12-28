@@ -10,8 +10,27 @@ from PIL import Image
 import os
 import io
 import pydot
+import zipfile
+import wget
+import tempfile
+
 
 def main():
+
+
+    temp_dir = tempfile.TemporaryDirectory()
+    paths = temp_dir.name
+    
+    url = 'https://vgg19-fooddetector.s3-ap-southeast-1.amazonaws.com/vgg19.h.zip'
+    wget.download(url, os.path.join(paths,'vgg19.h.zip'))
+    with zipfile.ZipFile(os.path.join(paths,'vgg19.h.zip'), 'r') as zip_ref:
+        zip_ref.extractall(paths)
+    
+    model = tf.keras.models.load_model(os.path.join(paths,'vgg19.h'))
+    
+    # use temp_dir, and when done:
+    temp_dir.cleanup()
+
 
     st.title("FoodDetector")
     
@@ -43,7 +62,7 @@ def main():
     
     image = st.file_uploader("The image of your meal!", ["png", "jpg", "jpeg", 'HEIC'], key = 'file')
     
-    model = tf.keras.models.load_model('vgg19.h')
+    
     
     labels = open('labels.txt')
     classes = labels.read()
@@ -80,10 +99,10 @@ def main():
             st.write("#### You will have {} calories remaining".format(round(calories_remaining)))
             
         
-        
+
             
     
     
     
-    #st.write(model) - to show the model's architecture 
+    
     

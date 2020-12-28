@@ -1,9 +1,10 @@
 tensorflow==2.4.0
-graphviz==0.16
-spyder==4.2.1
-streamlit==0.73.1
-pydot==1.4.1
+wget==3.2
 pandas==1.1.5
-numpy==1.19.4
+pydot==1.4.1
+streamlit==0.73.1
 streamlit_theme==0.58.0
+spyder==4.2.1
+graphviz==0.16
+numpy==1.19.4
 Pillow==8.0.1
