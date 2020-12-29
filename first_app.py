@@ -5,26 +5,13 @@ import tensorflow as tf
 from PIL import Image
 import os
 import io
-import zipfile
-import wget
-import tempfile
+
 
 
 def main():
+    
+    model = tf.keras.models.load_model('vgg19.h')
 
-
-    temp_dir = tempfile.TemporaryDirectory()
-    paths = temp_dir.name
-    
-    url = 'https://vgg19-fooddetector.s3-ap-southeast-1.amazonaws.com/vgg19.h.zip'
-    wget.download(url, os.path.join(paths,'vgg19.h.zip'))
-    with zipfile.ZipFile(os.path.join(paths,'vgg19.h.zip'), 'r') as zip_ref:
-        zip_ref.extractall(paths)
-    
-    model = tf.keras.models.load_model(os.path.join(paths,'vgg19.h'))
-    
-    # use temp_dir, and when done:
-    temp_dir.cleanup()
 
 
     st.title("FoodDetector")
