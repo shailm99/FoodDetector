@@ -1,7 +1,3 @@
-
-import re
-import sys
-from spyder.app.start import main
 import streamlit as st
 import numpy as np 
 import pandas as pd 
@@ -9,7 +5,6 @@ import tensorflow as tf
 from PIL import Image
 import os
 import io
-import pydot
 import zipfile
 import wget
 import tempfile
