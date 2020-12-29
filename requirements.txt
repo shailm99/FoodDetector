@@ -3,7 +3,5 @@ wget==3.2
 pandas==1.1.2
 streamlit==0.73.1
 streamlit_theme==0.58.0
-spyder==4.2.1
 numpy==1.19.4
 Pillow==8.0.1
-Rtree==0.9.4
