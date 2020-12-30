@@ -1,7 +1,4 @@
-tensorflow-cpu==2.4.0
-pandas==1.1.2
-streamlit==0.49.0
-streamlit_theme==0.58.0
 numpy==1.19.4
-Pillow==8.0.1
-gunicorn
+pandas
+streamlit==0.73.1
+tensorflow==2.0.0

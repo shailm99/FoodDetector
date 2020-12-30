@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np 
 import pandas as pd 
 import tensorflow as tf
+from tensorflow.keras.models import load_model
 from PIL import Image
 import os
 import io
@@ -9,10 +10,6 @@ import io
 
 
 def main():
-    
-    model = tf.keras.models.load_model('vgg19.h')
-
-
 
     st.title("FoodDetector")
     
@@ -44,7 +41,11 @@ def main():
     
     image = st.file_uploader("The image of your meal!", ["png", "jpg", "jpeg", 'HEIC'], key = 'file')
     
+    model = load_model('vgg19.h', compile = False)
     
+    loss = 'sparse_categorical_crossentropy'
+    optimizer = 'adam'
+    model.compile(loss = loss, optimizer = optimizer)
     
     labels = open('labels.txt')
     classes = labels.read()
