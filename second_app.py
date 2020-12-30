@@ -17,5 +17,5 @@ def main():
         st.balloons()
         st.write(nutri_df.loc[selected])
         
-    # Potentially add some images 
+    
     
