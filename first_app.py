@@ -89,6 +89,7 @@ def main():
             calories_remaining = calories_needed - sub_df.iloc[0]
             st.write("Using the Harris–Benedict BMR Equation based upon your gender, age, weight, height, and activity level")
             st.write("#### You will have {} calories remaining".format(round(calories_remaining)))
+            image = None
             
         
 
